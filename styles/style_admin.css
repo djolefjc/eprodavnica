@@ -1,0 +1,13 @@
+/* admin cp style */
+* {
+    padding:0px;
+    margin:0px;
+}
+body {
+    font-family:Verdana, serif;
+    
+}
+
+form input[type=submit] {
+    display:block;
+}
