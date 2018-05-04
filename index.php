@@ -36,6 +36,13 @@ include("functions/functions.php");
                     </li>
                 </ul>
             </div> <!-- END navbar -->
+            <div id="search">
+                <form method="get" action="includes/results.php" enctype="multipart/form-data">
+                    <input type="text" name="search_query" placeholder="Search Product" />
+                    <input type="submit" name="searchd_button" value="Search"
+
+                </form>
+            </div>
         </div> <!-- END header -->
 
         <div id="container">

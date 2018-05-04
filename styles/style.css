@@ -17,6 +17,7 @@ body {
     background:#2f40e4;
     width:100%;
 
+
 }
 #header img {
     display:inline;
@@ -48,14 +49,51 @@ body {
 
     border-bottom:2px solid #FFC400;
 }
+
+#search {
+    float:right;
+    margin:24px 40px 0 0;
+}
+#search input[type=text] {
+    padding:5px;
+}
+#search input[type=text]:focus {
+    outline:none;
+    border:2px solid #FFC400;
+}
+#search input[type=submit] {
+    padding:5px;
+    background:#FFC400;
+    border:2px solid #FFC400;
+    border-top-left-radius:20%;
+    border-bottom-right-radius:20%;
+    font-weight:bold;
+}
+#search input[type=submit]:hover {
+    box-shadow:2px 2px #000;
+}
+#search input[type=submit]:focus {
+    border:none;
+}
 /* END HEADER */
 /*START container */
 #container {
     width:1200px;
     margin:0 auto;
 
+
+}
+/*START main */
+
+#product_box {
+    width:780px;
+    text-align:center;
+    margin-left:30px;
+    margin-bottom:10px;
 }
 
+
+/* END main */
 /* START SIDE */
 #side {
     width:295px;

@@ -40,9 +40,32 @@ function getBrands() {
         echo "<td>
 
             <a href='#'>$brand_title</a>
-        
+
         </td>";
     }
 
 
+}
+
+//getting products on main page
+
+function getPro() {
+    global $con;
+
+    $run_pro = mysqli_query($con,"SELECT * FROM products ORDER BY RAND() LIMIT 0,6");
+
+    while($row_pro = mysqli_fetch_array($run_pro)) {
+
+        $pro_id = $row_pro['product_id'];
+        $pro_cat = $row_pro['product_cat'];
+        $pro_brand = $row_pro['product_brand'];
+        $pro_title = $row_pro['product_title'];
+        $pro_price = $row_pro['product_price'];
+        $pro_image = $row_pro['product_image'];
+
+            echo "
+
+            ";
+
+    }
 }

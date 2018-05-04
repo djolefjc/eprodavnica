@@ -113,9 +113,22 @@ if(isset($_POST['insert_post'])) {
     $product_image = $_FILES['product_image']['name'];
     $product_image_tmp = $_FILES['product_image']['tmp_name'];
 
-     $run_product = mysqli_query($con,"INSERT INTO products (product_cat,product_brand ,product_title, product_price, product_description, product_image, product_keywords) VALUES('$product_category','$product_brand','$product_title',
-        '$product_price','$product_description','$product_description','$product_keywords')") or die( mysqli_error($con));
 
+
+        if($product_title == "" or $product_category == "null" or $product_price == "" or
+        $product_keywords == "" or $product_brand == "null" or $product_image == "") {
+
+            echo "<script>alert('Please enter all fields!')</script>";
+        } else {
+            move_uploaded_file($product_image_tmp,"product_images/$product_image");
+
+            $run_product = mysqli_query($con,"INSERT INTO products
+                 (product_cat,product_brand ,product_title, product_price, product_description, product_image, product_keywords)
+                  VALUES('$product_category','$product_brand','$product_title',
+               '$product_price','$product_description','$product_description','$product_keywords')")
+                or die( mysqli_error($con));
+
+        }
 }
 
  ?>
