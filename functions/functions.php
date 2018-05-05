@@ -47,6 +47,7 @@ function getBrands() {
 
 }
 
+
 //getting products on main page
 
 function getPro() {
@@ -67,12 +68,12 @@ function getPro() {
             <div class='single-product cf'>
 
             <h4><a href='#'>$pro_title</a></h4>
-            <a href='#'><img src='admin/product_images/$pro_image' /></a>
+            <a href='details.php?pro_id=$pro_id'><img src='admin/product_images/$pro_image' /></a>
             <p>
             Price: $ $pro_price
             </p>
 
-            <a href='#'><button>Add To Cart</button></a>
+            <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
             </div>
 
             ";

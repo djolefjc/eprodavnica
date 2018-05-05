@@ -63,7 +63,35 @@ include("functions/functions.php");
 
                 <div id="product-box">
                     <?php
-                    getPro();
+
+
+                        $run_pro = mysqli_query($con,"SELECT * FROM products");
+
+                        while($row_pro = mysqli_fetch_array($run_pro)) {
+
+                            $pro_id = $row_pro['product_id'];
+                            $pro_cat = $row_pro['product_cat'];
+                            $pro_brand = $row_pro['product_brand'];
+                            $pro_title = $row_pro['product_title'];
+                            $pro_price = $row_pro['product_price'];
+                            $pro_image = $row_pro['product_image'];
+
+                                echo "
+                                <div class='single-product cf'>
+
+                                <h4><a href='#'>$pro_title</a></h4>
+                                <a href='details.php?pro_id=$pro_id'><img src='admin/product_images/$pro_image' /></a>
+                                <p>
+                                Price: $ $pro_price
+                                </p>
+
+                                <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
+                                </div>
+
+                                ";
+
+                        }
+                    
                     ?>
                 </div> <!-- END product box -->
 

@@ -93,7 +93,34 @@ body {
 
 }
 /*START main */
+#shop-bar {
+    float:right;
+    width:100%;
+    background:rgba(47, 64, 228, 0.71);
+    height:40px;
 
+}
+
+#shop-bar p {
+    float:right;
+    padding:10px 10px 0 0;
+}
+
+#shop-bar i {
+    float:right;
+    padding:10px 10px 0 10px;
+    color:rgba(255, 196, 0, 0.77);
+    font-size:20px;
+}
+#shop-bar i:hover {
+    font-size:25px;
+    padding:10px 10px 10px 10px;
+}
+#shop-bar span {
+    float:right;
+    padding-top:10px;
+    font-weight:bold;
+}
 #main {
   float:right;
   width:895px;
@@ -162,6 +189,7 @@ body {
     background:#2f40e4;
     padding-bottom:20px;
     margin-top:10px;
+    margin-bottom:10px;
     float:left;
 }
 #side h2 {
