@@ -47,7 +47,11 @@ include("functions/functions.php");
 
         <div id="container">
             <div id="main">
-
+                <div id="product-box">
+                    <?php
+                    getPro();
+                    ?>
+                </div> <!-- END product box -->
             </div> <!-- END main -->
             <div id="side">
                 <div id="side-category">

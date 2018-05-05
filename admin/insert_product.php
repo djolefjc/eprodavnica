@@ -125,7 +125,7 @@ if(isset($_POST['insert_post'])) {
             $run_product = mysqli_query($con,"INSERT INTO products
                  (product_cat,product_brand ,product_title, product_price, product_description, product_image, product_keywords)
                   VALUES('$product_category','$product_brand','$product_title',
-               '$product_price','$product_description','$product_description','$product_keywords')")
+               '$product_price','$product_description','$product_image','$product_keywords')")
                 or die( mysqli_error($con));
 
         }

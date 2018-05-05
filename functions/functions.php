@@ -64,6 +64,11 @@ function getPro() {
         $pro_image = $row_pro['product_image'];
 
             echo "
+            <div class='single-product'>
+
+            <h4><a href='#'>$pro_title</a></h4>
+            <a href='#'><img src='admin/product_images/$pro_image' /></a>
+            </div>
 
             ";
 

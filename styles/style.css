@@ -1,4 +1,5 @@
 html {
+
   height:100%;
   width:100%;
 }
@@ -22,6 +23,7 @@ body {
 #header {
     background:#2f40e4;
     width:100%;
+    position:relative;
 
 
 }
@@ -46,7 +48,7 @@ body {
     font-size:16px;
     display:block;
     text-decoration:none;
-    color:#000;
+    color:#fff;
 
 }
 
@@ -86,16 +88,14 @@ body {
 #container {
     width:1200px;
     margin:0 auto;
+    position:relative;
 
 
 }
 /*START main */
 
-#product_box {
-    width:780px;
-    text-align:center;
-    margin-left:30px;
-    margin-bottom:10px;
+#main {
+  float:right;
 }
 
 
@@ -112,6 +112,7 @@ body {
     text-align:center;
     font-size:24px;
     padding:10px;
+
 }
 #side hr {
     width:90%;
@@ -127,7 +128,7 @@ body {
 }
 #side table tr td a {
     text-decoration:none;
-    color:#000;
+    color:#fff;
 
 }
 #side table tr td a:hover {
@@ -141,7 +142,7 @@ body {
     padding:10px;
     text-align:center;
     text-decoration:none;
-    color:#000;
+    color:#fff;
     display:block;
 }
 
@@ -158,12 +159,14 @@ body {
     width:100%;
     background:#2f40e4;
     height:200px;
-  
+    clear:both;
+
 }
 #footer p {
     font-size:18px;
     text-align:center;
     position:relative;
     top:85px;
+    color:#fff;
 }
 /* END footer */
