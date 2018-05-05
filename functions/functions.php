@@ -52,7 +52,7 @@ function getBrands() {
 function getPro() {
     global $con;
 
-    $run_pro = mysqli_query($con,"SELECT * FROM products ORDER BY RAND() LIMIT 0,6");
+    $run_pro = mysqli_query($con,"SELECT * FROM products ORDER BY RAND() LIMIT 0,9");
 
     while($row_pro = mysqli_fetch_array($run_pro)) {
 
@@ -64,10 +64,15 @@ function getPro() {
         $pro_image = $row_pro['product_image'];
 
             echo "
-            <div class='single-product'>
+            <div class='single-product cf'>
 
             <h4><a href='#'>$pro_title</a></h4>
             <a href='#'><img src='admin/product_images/$pro_image' /></a>
+            <p>
+            Price: $ $pro_price
+            </p>
+
+            <a href='#'><button>Add To Cart</button></a>
             </div>
 
             ";
