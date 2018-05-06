@@ -98,7 +98,7 @@ include("functions/functions.php");
                             </p>
                             </div>
                             <span> Price: $ $pro_price</span> &nbsp; &nbsp;
-                            <a href='index.php?pro_id=$product_id'><button>Add To Cart</button></a>
+                            <a href='index.php?add_cart=$product_id'><button>Add To Cart</button></a>
                             </div>
 
                             ";

@@ -3,6 +3,54 @@
 
 $con = mysqli_connect("localhost","root","","eprodavnica");
 
+// function for getting ip address of the client
+/*In this PHP function, first attempt is to get the direct IP address of client’s machine, if not available then try for forwarded for IP address using HTTP_X_FORWARDED_FOR. And if this is also not available, then finally get the IP address using REMOTE_ADDR.*/
+
+function getIp()
+{
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+    {
+      $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+    {
+      $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else
+    {
+      $ip=$_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
+//adding product to cart
+
+function cart() {
+
+    if(isset($_GET['add_cart'])) {
+
+        global $con;
+
+        $ip = getIp();
+
+        $pro_id = $_GET['add_cart'];
+
+        $run_check = mysqli_query($con,"SELECT * FROM cart WHERE ip_add = '$ip' AND p_id = '$pro_id'") or die(mysqli_error($con));
+
+        if(mysqli_num_rows($run_check)>0) {
+
+            echo "";
+        }
+
+     else {
+
+        $run_pro = mysqli_query($con, "INSERT INTO cart (p_id, ip_add) values ('$pro_id','$ip')") or die(mysqli_error($con));
+
+        echo "<script>window.open('index.php','_self')</script>";
+    }
+    }
+}
+
 //getting the categories
 
 function getCats() {
@@ -81,7 +129,7 @@ function getPro() {
             Price: $ $pro_price
             </p>
 
-            <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
+            <a href='index.php?add_cart=$pro_id'><button>Add To Cart</button></a>
             </div>
 
             ";
@@ -138,7 +186,7 @@ function getCatPro() {
             Price: $ $pro_price
             </p>
 
-            <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
+            <a href='index.php?add_cart=$pro_id'><button>Add To Cart</button></a>
             </div>
 
             ";
@@ -192,7 +240,7 @@ function getBrandPro() {
             Price: $ $pro_price
             </p>
 
-            <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
+            <a href='index.php?add_cart=$pro_id'><button>Add To Cart</button></a>
             </div>
 
             ";

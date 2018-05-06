@@ -79,7 +79,7 @@ include("functions/functions.php");
 
                         if($count_pro == 0) {
 
-                            echo "<h1 class='fail-search'>We're sorry, there aren't any products with that name :(</h1>";
+                            echo "<h1 class='fail-search'>We're sorry but there aren't any products with that name :(</h1>";
                         }else {
 
                         while($row_pro = mysqli_fetch_array($run_pro)) {
@@ -100,7 +100,7 @@ include("functions/functions.php");
                                 Price: $ $pro_price
                                 </p>
 
-                                <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
+                                <a href='index.php?add_cart=$pro_id'><button>Add To Cart</button></a>
                                 </div>
 
                                 ";

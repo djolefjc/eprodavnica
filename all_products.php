@@ -89,7 +89,7 @@ include("functions/functions.php");
                                 Price: $ $pro_price
                                 </p>
 
-                                <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
+                                <a href='index.php?add_cart=$pro_id'><button>Add To Cart</button></a>
                                 </div>
 
                                 ";

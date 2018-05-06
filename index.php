@@ -45,7 +45,7 @@ include("functions/functions.php");
                 </form>
             </div>
         </div> <!-- END header -->
-
+        <?php cart(); ?>
         <div id="shop-bar">
             <p>
                 Total items:
@@ -63,6 +63,8 @@ include("functions/functions.php");
 
                 <div id="product-box">
                     <?php
+
+
 
                     if(isset($_GET['cat'])) {
                     getCatPro();
