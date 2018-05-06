@@ -14,7 +14,7 @@ include("functions/functions.php");
     </head>
     <body>
         <div id="header" class="cf">
-            <img src="images/logo.png" />
+            <a href="index.php"><img src="images/logo.png" /></a>
             <div id="navbar">
                 <ul>
                     <li>
@@ -24,13 +24,13 @@ include("functions/functions.php");
                         <a href="all_products.php"> Products</a>
                     </li>
                     <li>
-                        <a href="#"> My Account</a>
+                        <a href="customer/my_account.php"> My Account</a>
                     </li>
                     <li>
                         <a href="#"> Sign Up</a>
                     </li>
                     <li>
-                        <a href="#"> Shopping Card</a>
+                        <a href="cart.php"> Shopping Card</a>
                     </li>
                     <li>
                         <a href="#"> Contact Us</a>
@@ -38,9 +38,9 @@ include("functions/functions.php");
                 </ul>
             </div> <!-- END navbar -->
             <div id="search">
-                <form method="get" action="includes/results.php" enctype="multipart/form-data">
+                <form method="get" action="results.php" enctype="multipart/form-data">
                     <input type="text" name="search_query" placeholder="Search Product" />
-                    <input type="submit" name="searchd_button" value="Search"
+                    <input type="submit" name="search_button" value="Search" />
 
                 </form>
             </div>
@@ -53,7 +53,7 @@ include("functions/functions.php");
             <p>
                 Total price:
             </p>
-            <a href="#"><i class="fas fa-shopping-cart">   | </i></a>
+            <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
             <span> Welcome Guest! </span>
 
         </div> <!-- END shop-bar -->
@@ -63,7 +63,16 @@ include("functions/functions.php");
 
                 <div id="product-box">
                     <?php
-                    getPro();
+
+                    if(isset($_GET['cat'])) {
+                    getCatPro();
+                }
+                    elseif(isset($_GET['brand'])) {
+                        getBrandPro();
+                    }
+                    else {
+                        getPro();
+                    }
                     ?>
                 </div> <!-- END product box -->
 
@@ -78,6 +87,7 @@ include("functions/functions.php");
                         <tr>
                             <?php
                             getBrands();
+
                              ?>
                         </tr>
                     </table>

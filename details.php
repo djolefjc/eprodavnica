@@ -62,39 +62,49 @@ include("functions/functions.php");
             <div id="main">
 
                 <div id="product-box">
+
                     <?php
+
 
 
                     getCatPro();
 
                     getBrandPro();
 
-                        $run_pro = mysqli_query($con,"SELECT * FROM products");
+                    if(isset($_GET['pro_id'])) {
 
-                        while($row_pro = mysqli_fetch_array($run_pro)) {
+                        $product_id = $_GET['pro_id'];
 
-                            $pro_id = $row_pro['product_id'];
-                            $pro_cat = $row_pro['product_cat'];
-                            $pro_brand = $row_pro['product_brand'];
-                            $pro_title = $row_pro['product_title'];
-                            $pro_price = $row_pro['product_price'];
-                            $pro_image = $row_pro['product_image'];
+                    $run_pro = mysqli_query($con,"SELECT * FROM products WHERE product_id = '$product_id'");
 
-                                echo "
-                                <div class='single-product cf'>
+                    while($row_pro = mysqli_fetch_array($run_pro)) {
 
-                                <h4><a href='#'>$pro_title</a></h4>
-                                <a href='details.php?pro_id=$pro_id'><img src='admin/product_images/$pro_image' /></a>
-                                <p>
-                                Price: $ $pro_price
-                                </p>
 
-                                <a href='index.php?pro_id=$pro_id'><button>Add To Cart</button></a>
-                                </div>
 
-                                ";
+                        $pro_title = $row_pro['product_title'];
+                        $pro_price = $row_pro['product_price'];
+                        $pro_image = $row_pro['product_image'];
+                        $pro_description = $row_pro['product_description'];
 
-                        }
+
+                            echo "
+                            <div class='pro-details'>
+                            <h1>$pro_title</h1>
+                            <img src='admin/product_images/$pro_image' />
+                            <div class='desc-details'>
+                            <span> Description:</span>
+                            <p>
+                            $pro_description
+                            </p>
+                            </div>
+                            <span> Price: $ $pro_price</span> &nbsp; &nbsp;
+                            <a href='index.php?pro_id=$product_id'><button>Add To Cart</button></a>
+                            </div>
+
+                            ";
+
+                    }
+                    }
 
                     ?>
                 </div> <!-- END product box -->

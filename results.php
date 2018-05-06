@@ -69,7 +69,18 @@ include("functions/functions.php");
 
                     getBrandPro();
 
-                        $run_pro = mysqli_query($con,"SELECT * FROM products");
+                    if(isset($_GET['search_button'])) {
+
+                        $search_query = $_GET['search_query'];
+
+                        $run_pro = mysqli_query($con,"SELECT * FROM products WHERE product_keywords LIKE '%$search_query%'");
+
+                        $count_pro = mysqli_num_rows($run_pro);
+
+                        if($count_pro == 0) {
+
+                            echo "<h1 class='fail-search'>We're sorry, there aren't any products with that name :(</h1>";
+                        }else {
 
                         while($row_pro = mysqli_fetch_array($run_pro)) {
 
@@ -95,6 +106,8 @@ include("functions/functions.php");
                                 ";
 
                         }
+                        }
+                    }
 
                     ?>
                 </div> <!-- END product box -->

@@ -178,9 +178,60 @@ body {
     background:rgba(255, 196, 0, 0.6);
 }
 
+.pro-details {
+    width:100%;
+}
+.pro-details h1 {
+    background:#FFC400;
+    border:1px solid #FFC400;
+    border-radius:30%;
+    margin:10px 0 10px 0;
+}
+.pro-details img {
+    width:400px;
+}
+.desc-details {
+    background:#ffc400;
+    width:100%;
+}
+.desc-details span {
+    position:relative;
+    bottom:30px;
+    right:350px;
+    background:rgba(255, 196, 0, 0.52);
+    padding:5px;
 
 
+}
+.desc-details p {
 
+    padding:5px;
+
+}
+
+.pro-details span {
+    font-weight:bold;
+    padding-top:10px;
+}
+.pro-details button {
+    padding:5px;
+    font-weight:bold;
+    background:#FFC400;
+    border:none;
+    margin:10px;
+}
+
+.pro-details button:hover {
+    box-shadow:2px 2px;
+}
+.pro-details button:focus {
+    outline:none;
+    padding:4px;
+}
+
+.fail-search {
+    margin-top:150px;
+}
 /* END main */
 /* START SIDE */
 #side {
