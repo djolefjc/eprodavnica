@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include("functions/functions.php");
 
 
@@ -117,10 +119,10 @@ include("functions/functions.php");
 
                             </td>
                             <td>
-                                <input type="text" name="qty" placeholder="<?php echo $pro_qty;?>">
+                                <input type="text" name="qty" value = "<?php $_SESSION['qty'];?>">
                             </td>
                             <td>
-                                <input type="checkbox" name="remove[]" value="<?php echo $pro_id ?>" />
+                                <input type="checkbox" name="remove" value="<?php echo $pro_id ?>" />
                             </td>
                             <td>
                                 <?php echo "$" . $single_price; ?>
@@ -150,6 +152,19 @@ include("functions/functions.php");
 
 
                 if(isset($_POST['update_cart'])) {
+
+                    //updating the Quantity
+
+                    $qty = $_POST['qty'];
+
+                    $run_qty = mysqli_query($con, "UPDATE cart SET qty = '$qty'");
+
+                    $_SESSION['qty'] = $qty;
+
+                    $total = $total*$qty;
+
+
+                    //removing the products
 
                     foreach($_POST['remove'] as $remove_id) {
 
