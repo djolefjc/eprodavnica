@@ -48,10 +48,10 @@ include("functions/functions.php");
         <?php cart(); ?>
         <div id="shop-bar">
             <p>
-                Total items:
+                Total items: <?php totalItems() ?>
             </p>
             <p>
-                Total price:
+                Total price: <?php totalPrice()?>
             </p>
             <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
             <span> Welcome Guest! </span>

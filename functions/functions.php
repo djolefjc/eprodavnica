@@ -23,7 +23,7 @@ function getIp()
     return $ip;
 }
 
-//adding product to cart
+//adding a single product to cart
 
 function cart() {
 
@@ -40,16 +40,79 @@ function cart() {
         if(mysqli_num_rows($run_check)>0) {
 
             echo "";
-        }
+        } else {
 
-     else {
-
-        $run_pro = mysqli_query($con, "INSERT INTO cart (p_id, ip_add) values ('$pro_id','$ip')") or die(mysqli_error($con));
+        $run_pro = mysqli_query($con, "INSERT INTO cart (p_id, ip_add, qty) values ('$pro_id','$ip',1)") or die(mysqli_error($con));
 
         echo "<script>window.open('index.php','_self')</script>";
     }
     }
 }
+
+//getting the total added items
+
+function totalItems() {
+    if(isset($_GET['add_cart'])) {
+
+        global $con;
+
+        $ip = getIp();
+
+        $run_items = mysqli_query($con, "SELECT * FROM cart WHERE ip_add='$ip'");
+
+        $count_items = mysqli_num_rows($run_items);
+
+    } else {
+        global $con;
+
+        $ip = getIp();
+
+        $run_items = mysqli_query($con, "SELECT * FROM cart WHERE ip_add='$ip'") or die(mysqli_error($con));
+
+        $count_items = mysqli_num_rows($run_items);
+    }
+
+    echo $count_items;
+
+}
+
+//getting the total Price of items in the cart
+
+function totalPrice() {
+
+    $total = 0;
+
+    global $con;
+
+    $ip = getIp();
+
+    $run_price = mysqli_query($con,"SELECT * FROM cart WHERE ip_add = '$ip'");
+
+    while($row_pro_price = mysqli_fetch_array($run_price)) {
+
+        $pro_id = $row_pro_price['p_id'];
+
+        $run_pro_price2 = mysqli_query($con,"SELECT * FROM products WHERE product_id = '$pro_id'");
+
+        while($row_pro_price2 = mysqli_fetch_array($run_pro_price2)) {
+
+            $pro_price = array($row_pro_price2['product_price']);
+
+
+
+            $pro_price_values = array_sum($pro_price);
+
+
+            $total += $pro_price_values;
+
+
+
+        }
+
+    }
+    echo "$" . $total;
+}
+
 
 //getting the categories
 
