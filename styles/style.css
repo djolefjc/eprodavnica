@@ -266,6 +266,25 @@ body {
     width:250px;
     height:300px;
 }
+
+#product-box-cart table td button {
+    color:#ffc400;
+    border:none;
+    background:#fff;
+    font-size:20px;
+}
+#product-box-cart table td button:hover {
+    color:red;
+}
+#product-box-cart table td input[type=submit] {
+    padding:5px;
+    background:#2f40e0;
+    font-weight:bold;
+    border:none;
+}
+#product-box-cart table td input[type=submit]:hover {
+    border-bottom:2px solid #ffc400;
+}
 #product-box-cart table td input[type=text] {
     width:20px;
     border:2px solid #ffc400;
@@ -294,7 +313,7 @@ outline:none;
 }
 #product-box-cart #check-buttons input {
     padding:10px;
-    margin-left:20px;
+    margin-left:10px;
     background:#FFC400;
     font-weight:bold;
     border:none;
