@@ -1,6 +1,6 @@
 <?php
 include("functions/functions.php");
-
+include("database.php");
 
  ?>
 
@@ -64,35 +64,87 @@ include("functions/functions.php");
                 <div id="product-box">
                     <div id="register-box">
                     <form action = "" method="post" enctype="multipart/form-data">
-                        <h1>Create Account</h1>
-                        <p>
+                        <h1>Register now</h1>
+                        <table>
+                        <tr>
+
+                        <td>
                             Customer Name:
-                        </p>
-                        <input type="text" name="c_name" />
-                        <br />
-                        <p>
+
+
+                            </td>
+                            <td>
+                        <input type="text" name="c_name" required />
+                    </td>
+                        </tr>
+                        <tr>
+                            <td>
                             Customer Email:
-                        </p>
-                        <input type="text" name="c_email" />
-                        <br />
-                        <p>
+                        </td>
+                        <td>
+                        <input type="text" name="c_email" required />
+                    </td>
+                        <tr />
+                        <tr>
+                            <td>
                             Customer Password:
-                        </p>
-                        <input type="password" name="c_pass" />
-                        <br />
-                        <p>
+                        </td>
+                        <td>
+                        <input type="password" name="c_pass" required/>
+                    </td>
+                    <tr>
+                        <td>
                             Customer Country:
-                        </p>
-                        <select name="c_country">
-                            <option>
+                    </td>
+                    <td>
+                        <select name="c_country" required>
+                            <option class="s_country">
                                 Select a Country
-                            </option>
+                            </option class="s_country">
 
                                 <?php
                                 countryList();
                                 ?>
                         </select>
-                        <br />
+
+</td>
+</tr>
+<tr>
+    <td>
+                            Customer City:
+                        </td>
+                        <td>
+                        <input type="text" name="c_city" required/>
+                    </td>
+                </tr>
+                        <tr>
+                            <td>
+                            Customer Address:
+                        </td>
+                        <td>
+                        <input type="text" name="c_address" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            Customer Contact:
+                        </td>
+                        <td>
+                        <input type="text" name="c_contact" required/>
+                    </td>
+                </tr>
+                        <tr>
+                        <td>
+
+                            Customer Image:
+                    </td>
+                    <td>
+                        <input type="file" name="c_img" />
+                    </td>
+                </tr>
+
+                        </table>
+                        <button type="submit" name="register">Create Account</button>
                     </form>
 
 
@@ -134,3 +186,9 @@ include("functions/functions.php");
 
     </body>
 </html>
+<?php
+if(isset($_POST['register'])) {
+    
+}
+
+ ?>

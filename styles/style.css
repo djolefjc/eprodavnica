@@ -454,8 +454,59 @@ outline:none;
 /* START register-box */
 #register-box {
     margin-top:100px;
+    margin-bottom:100px;
 }
 #register-box h1 {
     background:#ffc400;
+}
+#register-box table {
+    margin:0 auto;
+    margin:5px;
+    display:inline;
+}
+#register-box input {
+    margin:10px;
+    padding:5px;
+    width:225px;
+}
+#register-box input[type=text]:focus,#register-box input[type=password]:focus {
+    border:1px solid #ffc400;
+    outline:none;
+}
+#register-box select, #register-box option {
+    padding:5px;
+    width:240px;
+    overflow:hidden;
+
+}
+#register-box select:focus {
+    outline:none;
+    border:1px solid #ffc400;
+    overflow:hidden;
+
+}
+#register-box input[type=file] {
+margin-left:10px;
+background:#ffc400;
+width:235px;
+}
+#register-box button {
+    position:relative;
+    top:150px;
+    left:50px;
+    padding:10px;
+    background:#ffc400;
+    border:1px solid #ffc400;
+    border-radius:20%;
+    font-size:16px;
+    font-weight:bold;
+
+}
+#register-box button:hover {
+    box-shadow:1px 2px #000;
+}
+#register-box button:focus {
+    outline:none;
+
 }
 /* END register-box */
