@@ -104,6 +104,8 @@
                                                     $pro_title = $row_pro_price2['product_title'];
                                                     $product_image = $row_pro_price2['product_image'];
                                                     $single_price = $row_pro_price2['product_price'];
+                                                    $pro_price_single = $row_pro_price2['product_price'];
+
 
 
 
@@ -112,8 +114,12 @@
 
                                                     $total += $pro_price_values;
 
+                                                    if($pro_qty > 0) {
+                                                        $single_price = $single_price * $pro_qty;
 
+                                                        $total = $total + $single_price - $pro_price_single;
 
+                                                    }
 
                                         ?>
 
@@ -140,7 +146,7 @@
 
                                     </td>
                                     <td>
-                                        <?php echo "$" . cartSinglePrice(); ?>
+                                        <?php echo "$" . $single_price; ?>
                                     </td>
 
                                     </tr>
@@ -148,7 +154,12 @@
                                                         </form>
 
 
-        <?php }} }?>
+        <?php
+
+
+
+
+     }} }?>
                                     </tbody>
                                        </table>
                             <p>

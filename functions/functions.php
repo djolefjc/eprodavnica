@@ -70,6 +70,14 @@
                         $run_items = mysqli_query($con, "SELECT * FROM cart WHERE ip_add='$ip'") or die(mysqli_error($con));
 
                         $count_items = mysqli_num_rows($run_items);
+
+                        while($get_items = mysqli_fetch_array($run_items)) {
+
+                            $pro_qty = $get_items['qty'];
+                        if($pro_qty > 1) {
+                            $count_items = $count_items + $pro_qty - 1;
+                        }
+                    }
                     }
 
                     echo $count_items;
@@ -91,6 +99,7 @@
                     while($row_pro_price = mysqli_fetch_array($run_price)) {
 
                         $pro_id = $row_pro_price['p_id'];
+                        $pro_qty = $row_pro_price['qty'];
 
                         $run_pro_price2 = mysqli_query($con,"SELECT * FROM products WHERE product_id = '$pro_id'");
 
@@ -98,13 +107,17 @@
 
                             $pro_price = array($row_pro_price2['product_price']);
 
-
+                            $pro_price_single = $row_pro_price2['product_price'];
 
                             $pro_price_values = array_sum($pro_price);
 
 
                             $total += $pro_price_values;
 
+                            if($pro_qty > 1) {
+                                $pro_price_single_all = $pro_price_single * $pro_qty;
+                                $total = $total + $pro_price_single_all - $pro_price_single;
+                            }
 
 
                         }
