@@ -64,17 +64,15 @@
                     <div id="main">
 
                         <div id="product-box-cart">
-
-                        <form action="" method="post" enctype="multipart/form-data">
                             <table>
 
-                                    <thead>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th>Remove</th>
-                                        <th>Price</th>
-                                    </thead>
-                                    <tbody>
+                                <thead>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Remove</th>
+                                    <th>Price</th>
+                                </thead>
+                                <tbody>
                                         <?php
 
                                             $total = 0;
@@ -85,6 +83,14 @@
 
                                             $run_price = mysqli_query($con,"SELECT * FROM cart WHERE ip_add = '$ip'");
 
+                                            $num_row_price = mysqli_num_rows($run_price);
+                                            if(!$num_row_price) {
+                                                echo "<div style='position:relative; top:100px; left:100px; width:100%;height:500px; background:#fff;'>
+                                                <h1 style='font-size:40px;'>Your cart seems to be empty :(</h1>
+                                                </div>
+
+                                                ";
+                                            } else {
                                             while($row_pro_price = mysqli_fetch_array($run_price)) {
 
                                                 $pro_id = $row_pro_price['p_id'];
@@ -109,8 +115,10 @@
 
 
 
-
                                         ?>
+
+                                        <form action="" method="post" enctype="multipart/form-data"  >
+
 
                                         <tr>
                                     <td>
@@ -120,46 +128,78 @@
                                     </td>
                                     <td>
                                         <input type="text" name="qty" value = "<?php echo $pro_qty;?>">
-                                        <input type="hidden" name="qty_btn" value = "<?php echo $pro_id ?>" />
-                                        <button>Click</button>
+                                        <button  type="submit" name="qty_btn" value = "<?php echo $pro_id ?>">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
                                     </td>
 
                                     <td>
-                                        <input type="hidden" name="remove" value="<?php echo $pro_id?>"  />
-                                        <button>Delete</button>
+                                        <button type="submit" name="remove" value="<?php echo $pro_id?>">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
 
                                     </td>
                                     <td>
-                                        <?php echo "$" . $single_price; ?>
+                                        <?php echo "$" . cartSinglePrice(); ?>
                                     </td>
-
 
                                     </tr>
 
+                                                        </form>
+
+
+        <?php }} }?>
                                     </tbody>
-
-
-        <?php }} ?>
-                            </table>
-
+                                       </table>
                             <p>
                             <b>  Total Value: </b>  <?php  echo "$" . $total;?>
                             </p>
+
                             <div id="check-buttons">
-                            <input type="submit" name="continue" value="Continue Shopping" />
+                                <a href="index.php"><input type="submit" name="continue" value="Continue Shopping" /></a>
                             <a href="checkout.php"><input type="button" value="Checkout" /></a>
 
 
                             </div>
-                        </form>
+
                         <?php
+
+
                         if(isset($_POST['remove'])) {
                             $remove_id = $_POST['remove'];
 
                             $run_r = mysqli_query($con, "DELETE FROM cart WHERE p_id ='$remove_id' AND ip_add = '$ip'");
 
-                            
+                            if($run_r) {
+                                echo "<script>window.open('cart.php','_self')</script>";
+                            }
+
+
                         }
+                        if(isset($_POST['qty_btn'])) {
+
+                            $qty_id = $_POST['qty_btn'];
+                            $qty = $_POST['qty'];
+
+                            $run_qty = mysqli_query($con,"UPDATE cart SET qty = '$qty' WHERE p_id = '$qty_id' AND ip_add = '$ip'");
+
+                                if($run_qty) {
+
+
+                                     echo "<script>window.open('cart.php','_self')</script>";
+                                     $single_price *= $qty;
+                                     $total = $total + $single_price;
+                                }
+
+
+                        }
+
+                        if(isset($_GET['continue'])) {
+
+                            echo "<script>window.open('index.php''_self')</script>";
+                        }
+
+
                         ?>
 
                         </div> <!-- END product box -->
@@ -184,6 +224,7 @@
 
                                 <?php
                                 getCats();
+
                                  ?>
 
                             </ul>

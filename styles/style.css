@@ -278,12 +278,12 @@ body {
 }
 #product-box-cart table td input[type=submit] {
     padding:5px;
-    background:#2f40e0;
+    background:#ffc400;
     font-weight:bold;
     border:none;
 }
 #product-box-cart table td input[type=submit]:hover {
-    border-bottom:2px solid #ffc400;
+    border-bottom:1px solid #ffc400;
 }
 #product-box-cart table td input[type=text] {
     width:20px;
@@ -297,7 +297,7 @@ outline:none;
 #product-box-cart table td a:hover {
     color:red;
 }
-#product-box-cart form p {
+#product-box-cart p {
     margin-left:497px;
     margin-bottom:20px;
     background:#FFC400;
