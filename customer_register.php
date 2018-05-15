@@ -1,6 +1,7 @@
 <?php
+session_start();
 include("functions/functions.php");
-include("database.php");
+include("includes/database.php");
 
  ?>
 
@@ -179,8 +180,7 @@ include("database.php");
             </div> <!-- END side -->
 
         </div> <!--END container -->
-
-        <div id="footer">
+cu        <div id="footer">
             <p>&copy; 2018 by Djordje Stamenkovic</p>
         </div> <!-- END footer -->
 
@@ -188,7 +188,39 @@ include("database.php");
 </html>
 <?php
 if(isset($_POST['register'])) {
-    
+    $ip = getIp();
+    $c_name = $_POST['c_name'];
+    $c_email = $_POST['c_email'];
+    $c_pass = $_POST['c_pass'];
+    $c_img = $_FILES['c_img']['name'];
+    $c_img_tmp = $_FILES['c_img']['tmp_name'];
+    $c_country = $_POST['c_country'];
+    $c_city = $_POST['c_city'];
+    $c_address = $_POST['c_address'];
+    $c_contact = $_POST['c_contact'];
+
+    $upl = move_uploaded_file($c_img_tmp,"customer/customer_images/$c_img");
+    var_dump($upl);
+
+
+    $insert_c = "INSERT INTO customers (customer_ip, customer_name, customer_email, customer_pass, customer_country, customer_city, customer_address, customer_contact,
+        customer_image) VALUES('$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_address','$c_contact','$c_img')";
+        $run_c = mysqli_query($con,$insert_c);
+
+        $run_cart = mysqli_query($con,"SELECT * FROM cart WHERE ip_add = '$ip'");
+
+        $check_cart = mysqli_num_rows($run_cart);
+
+        if($check_cart==0) {
+            $_SESSION['customer_email'] = $c_email;
+            echo "<script>alert('Thank you for taking your time to register!')</script>";
+            echo "<script>window.open('customer/my_account_php','_self')</script>";
+        }
+        else {
+            $_SESSION['customer_email'] = $c_email;
+            echo "<script>alert('Thank you for taking your time to register!')</script>";
+            echo "<script>window.open('checkout.php','_self')</script>";
+        }
 }
 
  ?>

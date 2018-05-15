@@ -510,3 +510,17 @@ width:235px;
 
 }
 /* END register-box */
+/* START payment-box */
+#payment-box {
+    margin-top:150px;
+}
+#payment-box h1 {
+    display:inline;
+}
+#payment-box i {
+    font-size:52px;
+    position:relative;
+    top:7px;
+    color:#2f40e4;
+}
+/* END payment-box */
