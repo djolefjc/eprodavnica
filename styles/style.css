@@ -93,6 +93,19 @@ body {
 
 }
 /*START main */
+.sign {
+    float:left;
+     color:#000;
+    font-weight:bold;
+    text-decoration:none;
+    margin-top:10px;
+    margin-left:10px;
+}
+.sign:hover {
+    text-decoration:underline;
+    text-decoration-color:#ffc400;
+}
+
 #shop-bar {
     float:right;
     width:100%;

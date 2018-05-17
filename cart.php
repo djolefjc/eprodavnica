@@ -1,6 +1,6 @@
         <?php
 
-
+        session_start();
         include("functions/functions.php");
 
 
@@ -58,6 +58,14 @@
                     <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
                     <span> Welcome Guest! </span>
 
+                    <?php
+                    if(!isset($_SESSION['customer_email'])) {
+                        echo "<a href='checkout.php' class='sign'>Login</a>";
+
+                    } else {
+                        echo "<a href='logout.php' class='sign'>Logout</a>";
+                    }
+                     ?>
                 </div> <!-- END shop-bar -->
                 <div id="container">
 
