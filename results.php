@@ -28,7 +28,12 @@ include("functions/functions.php");
                         <a href="#"> My Account</a>
                     </li>
                     <li>
-                        <a href="#"> Sign Up</a>
+                        <?php
+                         if(!isset($_SESSION['customer_email'])) {
+                            echo "<a href='customer_register.php'>Sign Up</a>";
+                         }
+
+                         ?>
                     </li>
                     <li>
                         <a href="#"> Shopping Card</a>
@@ -55,7 +60,19 @@ include("functions/functions.php");
                 Total price: <?php totalPrice()?>
             </p>
             <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
-            <span> Welcome Guest! </span>
+            <span>
+                <?php
+                if(isset($_SESSION['customer_email'])) {
+                    $c_email = $_SESSION['customer_email'];
+                    $select_user = mysqli_query($con,"SELECT * FROM customers WHERE customer_email = '$c_email' ");
+                    $row_all = mysqli_fetch_array($select_user);
+                    $c_name = $row_all['customer_name'];
+                    echo "Welcome " . $c_name;
+                }else {
+                    echo "Welcome Guest";
+                }
+                 ?>
+             </span>
 
             <?php
             if(!isset($_SESSION['customer_email'])) {

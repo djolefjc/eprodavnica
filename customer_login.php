@@ -57,7 +57,7 @@ if(isset($_POST['login'])) {
 
         $_SESSION['customer_email'] = $c_email;
         echo "<script>alert('You logged in successfuly')</script>";
-        echo "<script>window.open('my_account.php','_self')</script>";
+        echo "<script>window.open('customer/my_account.php','_self')</script>";
     } else {
         $_SESSION['customer_email'] = $c_email;
         echo "<script>alert('You logged in successfuly')</script>";

@@ -29,7 +29,12 @@
                                 <a href="customer/my_account.php"> My Account</a>
                             </li>
                             <li>
-                                <a href="#"> Sign Up</a>
+                                <?php
+                                 if(!isset($_SESSION['customer_email'])) {
+                                    echo "<a href='customer_register.php'>Sign Up</a>";
+                                 }
+
+                                 ?>
                             </li>
                             <li>
                                 <a href="cart.php"> Shopping Card</a>
@@ -56,7 +61,19 @@
                         Total price: <?php totalPrice()?>
                     </p>
                     <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
-                    <span> Welcome Guest! </span>
+                    <span>
+                        <?php
+                        if(isset($_SESSION['customer_email'])) {
+                            $c_email = $_SESSION['customer_email'];
+                            $select_user = mysqli_query($con,"SELECT * FROM customers WHERE customer_email = '$c_email' ");
+                            $row_all = mysqli_fetch_array($select_user);
+                            $c_name = $row_all['customer_name'];
+                            echo "Welcome " . $c_name;
+                        } else {
+                            echo "Welcome Guest";
+                        }
+                         ?>
+                     </span>
 
                     <?php
                     if(!isset($_SESSION['customer_email'])) {
@@ -95,6 +112,7 @@
                                             if(!$num_row_price) {
                                                 echo "<div style='position:relative; top:100px; left:100px; width:100%;height:500px; background:#fff;'>
                                                 <h1 style='font-size:40px;'>Your cart seems to be empty :(</h1>
+                                                <a href='index.php' style='text-decoration:none; color:#ffc400;'>Back to shop</a>
                                                 </div>
 
                                                 ";

@@ -28,7 +28,12 @@ include("functions/functions.php");
                         <a href="customer/my_account.php"> My Account</a>
                     </li>
                     <li>
-                        <a href="#"> Sign Up</a>
+                        <?php
+                         if(!isset($_SESSION['customer_email'])) {
+                            echo "<a href='customer_register.php'>Sign Up</a>";
+                         }
+
+                         ?>
                     </li>
                     <li>
                         <a href="cart.php"> Shopping Card</a>

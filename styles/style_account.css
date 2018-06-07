@@ -88,7 +88,7 @@ body {
 #container {
     width:1200px;
     margin:0 auto;
-    position:relative;
+
 
 
 }
@@ -555,3 +555,8 @@ width:235px;
     margin-left:35px;
 }
 /*END customer-box */
+/* START customerside */
+.customer-side {
+    height:230px;
+}
+/* END customerside */

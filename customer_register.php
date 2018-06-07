@@ -25,12 +25,6 @@ include("includes/database.php");
                         <a href="all_products.php"> Products</a>
                     </li>
                     <li>
-                        <a href="customer/my_account.php"> My Account</a>
-                    </li>
-                    <li>
-                        <a href="#"> Sign Up</a>
-                    </li>
-                    <li>
                         <a href="cart.php"> Shopping Card</a>
                     </li>
                     <li>
@@ -85,7 +79,7 @@ include("includes/database.php");
                         <td>
                         <input type="text" name="c_email" required />
                     </td>
-                        <tr />
+                </tr>
                         <tr>
                             <td>
                             Customer Password:
@@ -93,7 +87,7 @@ include("includes/database.php");
                         <td>
                         <input type="password" name="c_pass" required/>
                     </td>
-                    <tr>
+                </tr><tr>
                         <td>
                             Customer Country:
                     </td>
@@ -180,7 +174,7 @@ include("includes/database.php");
             </div> <!-- END side -->
 
         </div> <!--END container -->
-cu        <div id="footer">
+      <div id="footer">
             <p>&copy; 2018 by Djordje Stamenkovic</p>
         </div> <!-- END footer -->
 

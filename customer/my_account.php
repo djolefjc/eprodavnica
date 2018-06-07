@@ -1,7 +1,11 @@
 <?php
 session_start();
-include("functions/functions.php");
+include("../functions/functions.php");
 
+if(!isset($_SESSION['customer_email'])) {
+
+    echo "<script>window.open('../checkout.php','_self')</script>";
+}
 
  ?>
 
@@ -10,22 +14,22 @@ include("functions/functions.php");
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-        <link type="text/css" rel="stylesheet" href="styles/style.css" />
+        <link type="text/css" rel="stylesheet" href="../styles/style_account.css" />
         <title>Prodavnica+</title>
     </head>
     <body>
         <div id="header" class="cf">
-            <a href="index.php"><img src="images/logo.png" /></a>
+            <a href="index.php"><img src="../images/logo.png" /></a>
             <div id="navbar">
                 <ul>
                     <li>
-                        <a href="index.php"> Home</a>
+                        <a href="../index.php"> Home</a>
                     </li>
                     <li>
-                        <a href="all_products.php"> Products</a>
+                        <a href="../all_products.php"> Products</a>
                     </li>
                     <li>
-                        <a href="customer/my_account.php"> My Account</a>
+                        <a href="../customer/my_account.php"> My Account</a>
                     </li>
                     <li>
                         <?php
@@ -36,10 +40,10 @@ include("functions/functions.php");
                          ?>
                     </li>
                     <li>
-                        <a href="cart.php"> Shopping Card</a>
+                        <a href="../cart.php"> Shopping Card</a>
                     </li>
                     <li>
-                        <a href="#"> Contact Us</a>
+                        <a href="../#"> Contact Us</a>
                     </li>
                 </ul>
             </div> <!-- END navbar -->
@@ -76,10 +80,10 @@ include("functions/functions.php");
 
             <?php
             if(!isset($_SESSION['customer_email'])) {
-                echo "<a href='checkout.php' class='sign'>Login</a>";
+                echo "<a href='../checkout.php' class='sign'>Login</a>";
 
             } else {
-                echo "<a href='logout.php' class='sign'>Logout</a>";
+                echo "<a href='../logout.php' class='sign'>Logout</a>";
             }
              ?>
         </div> <!-- END shop-bar -->
@@ -87,53 +91,75 @@ include("functions/functions.php");
 
             <div id="main">
 
-                <div id="product-box">
+                <div id="customer-box">
                     <?php
+                    if(!isset($_GET['edit'])) {
+                        if(!isset($_GET['orders'])) {
+                            if(!isset($_GET['pass'])) {
+                                if(!isset($_GET['delete'])) {
 
 
+                    $user = $_SESSION['customer_email'];
 
-                    if(isset($_GET['cat'])) {
-                    getCatPro();
+                    $run_img = mysqli_query($con,"SELECT * FROM customers WHERE customer_email = '$user'");
+
+                    $row_img = mysqli_fetch_array($run_img);
+
+                    $c_image = $row_img['customer_image'];
+                    $c_name = $row_img['customer_name'];
+                    $c_email = $row_img['customer_email'];
+
+                    echo "<div class='customer-main'><img src='customer_images/$c_image' />
+                    <p>
+                    Name : $c_name
+                    </p>
+                    <p>
+                    Email : $c_email
+                    </p>
+                    </div>
+                    ";
                 }
-                    elseif(isset($_GET['brand'])) {
-                        getBrandPro();
-                    }
-                    else {
-                        getPro();
-                    }
-                    ?>
-                </div> <!-- END product box -->
+            }
+        }
+    }
+                     ?>
+                </div> <!-- END customer box -->
 
             </div> <!-- END main -->
 
 
-            <div id="side">
-                <div id="side-category">
-                    <h2>Categories</h2>
+            <div id="side" class="side-customer">
+                <?php
+                if(isset($_GET['edit'])) {
+                    include("edit_account.php");
+                }
+                 ?>
+
+                    <h2>My Account</h2>
                     <hr />
-                    <table id="mw">
-                        <tr>
-                            <?php
-                            getBrands();
-
-                             ?>
-                        </tr>
-                    </table>
-
                     <ul>
 
-                        <?php
-                        getCats();
-                         ?>
+                        <li>
+                            <a href="my_account.php?orders">My Orders</a>
+                        </li>
+                        <li>
+                            <a href="my_account.php?edit">Edit Account</a>
+                        </li>
+                        <li>
+                            <a href="my_account.php?pass">Change Password</a>
+                        </li>
+                        <li>
+                            <a href="my_account.php?delete">Delete Account</a>
+                        </li>
 
                     </ul>
-                </div><!-- END side-category-->
+
 
             </div> <!-- END side -->
 
         </div> <!--END container -->
 
-        <div id="footer">
+        <div id="footer" class='lower-footer'>
             <p>&copy; 2018 by Djordje Stamenkovic</p>
         </div> <!-- END footer -->
 
