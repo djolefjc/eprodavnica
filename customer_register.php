@@ -193,6 +193,9 @@ if(isset($_POST['register'])) {
     $c_address = $_POST['c_address'];
     $c_contact = $_POST['c_contact'];
 
+    //ako korisnik nije izabrao sliku bira normalnu user sliku
+    if (empty($c_img)) $c_img = "default.png";
+
     $upl = move_uploaded_file($c_img_tmp,"customer/customer_images/$c_img");
     var_dump($upl);
 

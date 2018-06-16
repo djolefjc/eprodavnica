@@ -1,7 +1,7 @@
 html {
 
   height:100%;
-  width:100%;
+
 }
 
 * {
@@ -345,6 +345,7 @@ outline:none;
     margin-top:10px;
     margin-bottom:10px;
     float:left;
+    height:200px;
 }
 #side h2 {
     text-align:center;
@@ -396,8 +397,10 @@ outline:none;
     margin-top:10px;
     width:100%;
     background:#2f40e4;
-    height:200px;
     clear:both;
+    position:relative;
+    top:500px;
+    height:150px;
 
 }
 #footer p {
@@ -470,7 +473,7 @@ outline:none;
 /* END logn forn */
 /* START register-box */
 #register-box {
-    margin-top:100px;
+
     margin-bottom:100px;
 }
 #register-box h1 {
@@ -526,6 +529,13 @@ width:235px;
     outline:none;
 
 }
+#register-box img {
+    width:240px;
+    height:180px;
+    position:relative;
+    left:90px;
+    border:1px solid #000;
+}
 /* END register-box */
 /* START payment-box */
 #payment-box {
@@ -555,8 +565,3 @@ width:235px;
     margin-left:35px;
 }
 /*END customer-box */
-/* START customerside */
-.customer-side {
-    height:230px;
-}
-/* END customerside */

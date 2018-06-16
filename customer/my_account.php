@@ -70,7 +70,13 @@ if(!isset($_SESSION['customer_email'])) {
                     $c_email = $_SESSION['customer_email'];
                     $select_user = mysqli_query($con,"SELECT * FROM customers WHERE customer_email = '$c_email' ");
                     $row_all = mysqli_fetch_array($select_user);
+                    $c_id = $row_all['customer_id'];
                     $c_name = $row_all['customer_name'];
+                    $c_country = $row_all['customer_country'];
+                    $c_city = $row_all['customer_city'];
+                    $c_address = $row_all['customer_address'];
+                    $c_contact = $row_all['customer_contact'];
+                    $c_image = $row_all['customer_image'];
                     echo "Welcome " . $c_name;
                 }else {
                     echo "Welcome Guest";
@@ -159,7 +165,7 @@ if(!isset($_SESSION['customer_email'])) {
 
         </div> <!--END container -->
 
-        <div id="footer" class='lower-footer'>
+        <div id="footer" >
             <p>&copy; 2018 by Djordje Stamenkovic</p>
         </div> <!-- END footer -->
 

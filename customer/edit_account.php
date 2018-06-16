@@ -1,4 +1,18 @@
+<?php
 
+if(isset($_SESSION['customer_email'])) {
+    $c_email = $_SESSION['customer_email'];
+    $select_user = mysqli_query($con,"SELECT * FROM customers WHERE customer_email = '$c_email' ");
+    $row_all = mysqli_fetch_array($select_user);
+    $c_id = $row_all['customer_id'];
+    $c_name = $row_all['customer_name'];
+    $c_country = $row_all['customer_country'];
+    $c_city = $row_all['customer_city'];
+    $c_address = $row_all['customer_address'];
+    $c_contact = $row_all['customer_contact'];
+    $c_image = $row_all['customer_image'];
+
+ ?>
             <div id="container">
 
                 <div id="main">
@@ -6,7 +20,7 @@
                     <div id="product-box">
                         <div id="register-box">
                         <form action = "" method="post" enctype="multipart/form-data">
-                            <h1>Register now</h1>
+                            <h1>Update your profile</h1>
                             <table>
                             <tr>
 
@@ -16,7 +30,7 @@
 
                                 </td>
                                 <td>
-                            <input type="text" name="c_name" required />
+                            <input type="text" name="c_name" value="<?php echo $c_name; ?>" />
                         </td>
                             </tr>
                             <tr>
@@ -24,25 +38,18 @@
                                 Customer Email:
                             </td>
                             <td>
-                            <input type="text" name="c_email" required />
+                            <input type="text" name="c_email" value="<?php echo $c_email;?>" />
                         </td>
                     </tr>
-                            <tr>
-                                <td>
-                                Customer Password:
-                            </td>
-                            <td>
-                            <input type="password" name="c_pass" required/>
-                        </td>
-                    </tr>
+
                     <tr>
                             <td>
                                 Customer Country:
                         </td>
                         <td>
-                            <select name="c_country" required>
+                            <select name="c_country" >
                                 <option class="s_country">
-                                    Select a Country
+                                    <?php echo $c_country; ?>
                                 </option class="s_country">
 
                                     <?php
@@ -57,7 +64,7 @@
                                 Customer City:
                             </td>
                             <td>
-                            <input type="text" name="c_city" required/>
+                            <input type="text" name="c_city" value="<?php echo $c_city; ?>"/>
                         </td>
                     </tr>
                             <tr>
@@ -65,7 +72,7 @@
                                 Customer Address:
                             </td>
                             <td>
-                            <input type="text" name="c_address" required />
+                            <input type="text" name="c_address" value="<?php echo $c_address; ?>" />
                         </td>
                     </tr>
                     <tr>
@@ -73,7 +80,7 @@
                                 Customer Contact:
                             </td>
                             <td>
-                            <input type="text" name="c_contact" required/>
+                            <input type="text" name="c_contact" value="<?php echo $c_contact ?>"/>
                         </td>
                     </tr>
                             <tr>
@@ -83,11 +90,17 @@
                         </td>
                         <td>
                             <input type="file" name="c_img" />
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <img src="customer_images/<?php echo $c_image;?>">
                         </td>
                     </tr>
 
                             </table>
-                            <button type="submit" name="register">Create Account</button>
+                            <button type="submit" name="update">Update Account</button>
                         </form>
 
 
@@ -101,8 +114,10 @@
 
 
     <?php
-    if(isset($_POST['register'])) {
+
+    if(isset($_POST['update'])) {
         $ip = getIp();
+        $c_id = $row_all['customer_id'];
         $c_name = $_POST['c_name'];
         $c_email = $_POST['c_email'];
         $c_pass = $_POST['c_pass'];
@@ -113,30 +128,26 @@
         $c_address = $_POST['c_address'];
         $c_contact = $_POST['c_contact'];
 
-        $upl = move_uploaded_file($c_img_tmp,"customer/customer_images/$c_img");
-        var_dump($upl);
+
+        // ako select img = null  bira staru sliku
+        if (empty($c_img)) $c_img = $row_all['customer_image'];
+
+        $upl = move_uploaded_file($c_img_tmp,"customer_images/$c_img");
 
 
-        $insert_c = "INSERT INTO customers (customer_ip, customer_name, customer_email, customer_pass, customer_country, customer_city, customer_address, customer_contact,
-            customer_image) VALUES('$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_address','$c_contact','$c_img')";
-            $run_c = mysqli_query($con,$insert_c);
+            $update_c = "UPDATE customers SET customer_name ='$c_name', customer_email = '$c_email', customer_image = '$c_img',customer_country = '$c_country', customer_city = '$c_city', customer_address = '$c_address', customer_contact = '$c_contact' WHERE customer_id = '$c_id'";
 
-            $run_cart = mysqli_query($con,"SELECT * FROM cart WHERE ip_add = '$ip'");
+            $run_update = mysqli_query($con,$update_c);
+            var_dump($run_update);
 
-            $check_cart = mysqli_num_rows($run_cart);
-
-            if($check_cart==0) {
-                $_SESSION['customer_email'] = $c_email;
-                echo "<script>alert('Thank you for taking your time to register!')</script>";
-                echo "<script>window.open('customer/my_account_php','_self')</script>";
+            if($run_update) {
+                echo "<script>alert('Your account was successfuly updated!')</script>";
+                echo "<script>window.open('my_account.php','_self')</script>";
+                var_dump($run_update);
             }
-            else {
-                $_SESSION['customer_email'] = $c_email;
-                echo "<script>alert('Thank you for taking your time to register!')</script>";
-                echo "<script>window.open('checkout.php','_self')</script>";
-            }
+
     }
-
+}
      ?>
 
 </div> <!-- END container -->
