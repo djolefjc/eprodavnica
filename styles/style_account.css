@@ -565,3 +565,75 @@ width:235px;
     margin-left:35px;
 }
 /*END customer-box */
+/* START password-box */
+
+#password-box {
+    text-align:center;
+    margin-top:20px;
+}
+#password-box h1 {
+    width:100%;
+    background:#ffc400;
+    margin-bottom:30px;
+}
+#password-box p{
+    display:inline;
+    margin: 20px 10px 20px 10px;
+}
+
+#password-box h1 {
+    background:#ffc400;
+}
+#password-box table {
+    margin:0 auto;
+    margin:5px;
+    display:inline;
+}
+#password-box input {
+    margin:10px;
+    padding:5px;
+    width:225px;
+}
+#password-box input[type=text]:focus,#register-box input[type=password]:focus {
+    border:1px solid #ffc400;
+    outline:none;
+}
+
+#password-box input[type=submit]  {
+
+    padding:10px;
+    background:#ffc400;
+    border:1px solid #ffc400;
+    border-radius:20%;
+    font-size:16px;
+    font-weight:bold;
+
+}
+#password-box input[type=submit]:hover {
+    box-shadow:1px 2px #000;
+}
+#password-box input[type=submit]:focus {
+    outline:none;
+
+}
+/* END password-box */
+/*START delete-box */
+#delete-box {
+    text-align:center;
+}
+#delete-box h1 {
+    background:#ffc400;
+    margin-bottom:40px;
+}
+#delete-box input {
+    border:none;
+    padding:30px;
+    margin:20px;
+    font-size:24px;
+    background:#fff;
+}
+#delete-box input:hover {
+    color:#ffc400;
+    text-decoration:underline;
+}
+/* END delete-box */

@@ -37,6 +37,7 @@ if(!isset($_SESSION['customer_email'])) {
                             echo "<a href='customer_register.php'>Sign Up</a>";
                          }
 
+
                          ?>
                     </li>
                     <li>
@@ -138,6 +139,10 @@ if(!isset($_SESSION['customer_email'])) {
                 <?php
                 if(isset($_GET['edit'])) {
                     include("edit_account.php");
+                } if(isset($_GET['pass'])) {
+                    include("edit_password.php");
+                } if(isset($_GET['delete'])) {
+                    include("delete_account.php");
                 }
                  ?>
 
@@ -157,7 +162,9 @@ if(!isset($_SESSION['customer_email'])) {
                         <li>
                             <a href="my_account.php?delete">Delete Account</a>
                         </li>
-
+                        <li>
+                            <a href="../logout.php">Logout</a>
+                        </li>
                     </ul>
 
 
