@@ -18,7 +18,9 @@ if(isset($_POST['yes'])) {
 
     $run_delete = mysqli_query($con,"DELETE FROM customers WHERE customer_email ='$user'");
     echo "<script>alert('You have successfuly deleted your account!')</script>";
+    session_destroy();
     echo "<script>window.open('../index.php','_self')</script>";
+
 } if(isset($_POST['no'])) {
     echo "<script>alert('You will be redirected to your account shortly.')</script>";
     echo "<script>window.open('my_account.php', '_self')</script>";

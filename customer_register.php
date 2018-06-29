@@ -211,7 +211,7 @@ if(isset($_POST['register'])) {
         if($check_cart==0) {
             $_SESSION['customer_email'] = $c_email;
             echo "<script>alert('Thank you for taking your time to register!')</script>";
-            echo "<script>window.open('customer/my_account_php','_self')</script>";
+            echo "<script>window.open('customer/my_account.php','_self')</script>";
         }
         else {
             $_SESSION['customer_email'] = $c_email;
