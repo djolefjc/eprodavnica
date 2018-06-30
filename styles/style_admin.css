@@ -5,9 +5,129 @@
 }
 body {
     font-family:Verdana, serif;
-    
+
 }
 
-form input[type=submit] {
-    display:block;
+#container {
+  width:1200px;
+  margin:0 auto;
+
+
+
 }
+/* STAT head */
+#head {
+  background:rgb(72, 30, 191);
+  margin-top:25px;
+  height:100px;
+  text-align:center;
+  font-family: 'Rock Salt', serif;
+  padding-bottom:55px;
+  font-size:24px;
+  color:#ffc400;
+  margin-bottom:5px;
+
+}
+
+#head a i {
+  position:relative;
+  bottom:25px;
+    color:#ffc400
+}
+#head a i span {
+    font-family: 'Rock Salt', serif;
+}
+
+#head a:hover {
+  font-size:26px;
+}
+/* END head */
+/* START side */
+#side {
+
+  float:right;
+  width:348px;
+  background:rgb(72, 30, 191);
+  text-align:center;
+  border-left:2px solid #ffc400;
+}
+#side h2 {
+  color:#ffc400;
+  padding:10px;
+
+}
+#side a {
+  text-decoration:none;
+  color:#000;
+  display:block;
+}
+#side ul {
+  list-style-type:none;
+  padding-bottom:20px;
+}
+#side ul li {
+  padding:15px;
+  font-size:18px;
+}
+#side ul li:hover {
+  color:#ffc400;
+  background:rgba(93, 57, 196, 1);
+  border-bottom:1px solid #ffc400;
+}
+#side ul li a:hover {
+  color:#ffc400;
+}
+
+
+/* END side */
+/* START main */
+#main {
+  float:left;
+  width:850px;
+  text-align:center;
+  background:rgb(72, 30, 191);
+}
+#main h2 {
+    color:#ffc400;
+    padding-top:10px;
+
+}
+#main p {
+  padding:10px;
+  font-size:18px;
+}
+#main #cke_editor {
+margin:0 auto;
+}
+#main input[type=file] {
+  margin-left:90px;
+}
+#main input[type=text] {
+  padding:5px;
+  border:2px solid #ffc400;
+}
+#main input[type=submit] {
+    display:block;
+    margin:0 auto;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding:10px;
+    background:#ffc400;
+    border:1px solid #ffc400;
+    border-top-right-radius:20%;
+    border-bottom-left-radius:20%;
+    font-weight:bold;
+    font-size:18px;
+}
+#main input[type=submit]:hover {
+  box-shadow:2px 2px #000;
+}
+#main input[type=submit]:focus {
+  outline:none;
+}
+#main input[type=text]:focus {
+  background:rgba(254, 239, 189, 1);
+  outline:none;
+}
+
+/* END main */

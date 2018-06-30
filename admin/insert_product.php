@@ -21,13 +21,13 @@ include("../includes/database.php");
                 Product Title:
             </p>
             <input type="text" name="product_title" />
-            <hr />
+            <br />
             <p>
-                Product Category:
+                First Category:
             </p>
             <select name="product_category">
                 <option>
-                    Select a Category
+                    Select a Category:
                 </option>
                 <?php
                 $run_cats = mysqli_query($con,"SELECT * FROM categories");
@@ -41,9 +41,9 @@ include("../includes/database.php");
                 }
                  ?>
             </select>
-            <hr />
+            <br />
             <p>
-                Product For:
+                Second Category:
             </p>
             <select name="product_brand">
                 <option>
@@ -66,29 +66,30 @@ include("../includes/database.php");
 
             </select>
 
-            <hr />
+            <br />
             <p>
                 Product Image:
             </p>
             <input type="file" name="product_image" />
-            <hr />
+            <br />
             <p>
                 Product Price:
             </p>
             <input type="text" name="product_price" />
-            <hr />
+            <br />
 
             <p>
                 Product Description:
             </p>
-            <textarea id="editor"  name="product_description" cols="60" rows="10"></textarea>
+           <textarea id="editor"  name="product_description" cols="60" rows="10"></textarea>
+
             <script>
 
                 CKEDITOR.replace( 'editor' );
                 CKEDITOR.config.width = 600;
 
             </script>
-            <hr />
+            <br />
             <p>
                 Product Keywords:
             </p>
@@ -119,6 +120,7 @@ if(isset($_POST['insert_post'])) {
         $product_keywords == "" or $product_brand == "null" or $product_image == "") {
 
             echo "<script>alert('Please enter all fields!')</script>";
+            echo "<script>window.open('index.php?insert_product','_self')</script>";
         } else {
             move_uploaded_file($product_image_tmp,"product_images/$product_image");
 
