@@ -352,6 +352,4 @@ function countryList() {
         ";
     }
 }
-//first category name displplay {
-
-}
+//first category name displplay 

@@ -15,10 +15,16 @@
   <a href="index.php"><i class="fas fa-long-arrow-alt-left"><span>Back</span></i></a>
   </div> <!-- END head -->
     <div id="main">
-  
+
       <?php
       if(isset($_GET['insert_product'])) {
         include("insert_product.php");
+      }
+      if(isset($_GET['view_products'])) {
+          include("view_products.php");
+      }
+      if(isset($_GET['edit_product'])) {
+          include("edit_product.php");
       }
       ?>
     </div> <!-- END main -->
