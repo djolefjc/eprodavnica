@@ -115,6 +115,7 @@ if(isset($_POST['insert_post'])) {
 
 
 
+
         if($product_title == "" or $product_category == "null" or $product_price == "" or
         $product_keywords == "" or $product_brand == "null" or $product_image == "") {
 
@@ -128,6 +129,10 @@ if(isset($_POST['insert_post'])) {
                '$product_price','$product_description','$product_image','$product_keywords')")
                 or die( mysqli_error($con));
 
+        }
+        if($run_product) {
+          echo "<script>alert('You have successfully inserted a product!')</script>";
+          echo "<script>window.open('index.php?view_products','_self')</script>";
         }
 }
 

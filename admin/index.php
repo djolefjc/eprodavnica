@@ -26,6 +26,7 @@
       if(isset($_GET['edit_product'])) {
           include("edit_product.php");
       }
+  
       ?>
     </div> <!-- END main -->
     <div id="side">
