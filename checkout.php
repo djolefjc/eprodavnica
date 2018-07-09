@@ -60,7 +60,19 @@ include("functions/functions.php");
                 Total price: <?php totalPrice()?>
             </p>
             <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
-            <span> Welcome Guest! </span>
+            <span>
+                <?php
+                if(isset($_SESSION['customer_email'])) {
+                    $c_email = $_SESSION['customer_email'];
+                    $select_user = mysqli_query($con,"SELECT * FROM customers WHERE customer_email = '$c_email' ");
+                    $row_all = mysqli_fetch_array($select_user);
+                    $c_name = $row_all['customer_name'];
+                    echo "Welcome " . $c_name;
+                }else {
+                    echo "Welcome Guest";
+                }
+                 ?>
+             </span>
 
         </div> <!-- END shop-bar -->
         <div id="container">
@@ -107,7 +119,7 @@ include("functions/functions.php");
 
         </div> <!--END container -->
 
-        <div id="footer">
+        <div id="footer" class="lower-footer">
             <p>&copy; 2018 by Djordje Stamenkovic</p>
         </div> <!-- END footer -->
 
