@@ -21,7 +21,7 @@ include("../includes/database.php");
                 Product Title:
             </p>
             <input type="text" name="product_title" />
-            <hr />
+
             <p>
                 Product Category:
             </p>
@@ -41,7 +41,7 @@ include("../includes/database.php");
                 }
                  ?>
             </select>
-            <hr />
+
             <p>
                 Product For:
             </p>
@@ -66,17 +66,17 @@ include("../includes/database.php");
 
             </select>
 
-            <hr />
+
             <p>
                 Product Image:
             </p>
             <input type="file" name="product_image" />
-            <hr />
+
             <p>
                 Product Price:
             </p>
             <input type="text" name="product_price" />
-            <hr />
+
 
             <p>
                 Product Description:
@@ -88,7 +88,7 @@ include("../includes/database.php");
                 CKEDITOR.config.width = 600;
 
             </script>
-            <hr />
+
             <p>
                 Product Keywords:
             </p>
