@@ -26,7 +26,12 @@
       if(isset($_GET['edit_product'])) {
           include("edit_product.php");
       }
-  
+      if(isset($_GET['manage_categories1'])) {
+        include("manage_categories1.php");
+      } if(isset($_GET['manage_categories2'])) {
+        include("manage_categories2.php");
+      }
+
       ?>
     </div> <!-- END main -->
     <div id="side">

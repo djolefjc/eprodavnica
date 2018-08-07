@@ -64,7 +64,7 @@ if(!isset($_SESSION['customer_email'])) {
             <p>
                 Total price: <?php totalPrice()?>
             </p>
-            <a href="cart.php"><i class="fas fa-shopping-cart">   | </i></a>
+            <a href="../cart.php"><i class="fas fa-shopping-cart">   | </i></a>
             <span>
                 <?php
                 if(isset($_SESSION['customer_email'])) {
