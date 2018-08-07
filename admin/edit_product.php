@@ -28,14 +28,6 @@ if(isset($_GET['edit_product'])) {
     $brand_id_row = $pro_row_brand['brand_id'];
 }
  ?>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <script src="../js/ckeditor/ckeditor.js"></script>
-        <link type="text/css" rel="stylesheet" href="../styles/style_admin.css" />
-        <title>Insert Product</title>
-    </head>
-    <body>
 
         <form action="" method="post" enctype="multipart/form-data">
 
@@ -123,9 +115,6 @@ if(isset($_GET['edit_product'])) {
 
             <input type="submit" name="update_post" value="Update Now" />
         </form>
-
-    </body>
-</html>
 
 <?php
 

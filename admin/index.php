@@ -31,6 +31,12 @@
       } if(isset($_GET['manage_categories2'])) {
         include("manage_categories2.php");
       }
+      if(isset($_GET['view_customers'])) {
+        include('view_customers.php');
+      }
+      if(isset($_GET['details_customer'])) {
+        include("details_customer.php");
+      }
 
       ?>
     </div> <!-- END main -->

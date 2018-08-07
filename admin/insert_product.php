@@ -5,14 +5,6 @@
 include("../includes/database.php");
 
  ?>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <script src="../js/ckeditor/ckeditor.js"></script>
-        <link type="text/css" rel="stylesheet" href="../styles/style_admin.css" />
-        <title>Insert Product</title>
-    </head>
-    <body>
 
         <form action="insert_product.php" method="post" enctype="multipart/form-data">
 
@@ -96,9 +88,6 @@ include("../includes/database.php");
 
             <input type="submit" name="insert_post" value="Insert Now" />
         </form>
-
-    </body>
-</html>
 
 <?php
 
