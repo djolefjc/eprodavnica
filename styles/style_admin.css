@@ -5,6 +5,7 @@
 }
 body {
     font-family:Verdana, serif;
+    background:rgb(72, 30, 191);
 
 }
 
@@ -17,7 +18,7 @@ body {
 }
 /* STAT head */
 #head {
-  background:rgb(72, 30, 191);
+  background:rgb(108, 65, 228);
   margin-top:25px;
   height:100px;
   text-align:center;
@@ -29,12 +30,12 @@ body {
 
 }
 
-#head a i {
+#head a  {
   position:relative;
   bottom:25px;
     color:#ffc400
 }
-#head a i span {
+#head a  span {
     font-family: 'Rock Salt', serif;
 }
 
@@ -47,7 +48,7 @@ body {
 
   float:right;
   width:348px;
-  background:rgb(72, 30, 191);
+background:rgb(108, 65, 228);
   text-align:center;
   border-left:2px solid #ffc400;
 }
@@ -85,7 +86,14 @@ body {
   float:left;
   width:850px;
   text-align:center;
-  background:rgb(72, 30, 191);
+
+
+}
+#main #logged-in {
+  position:relative;
+  top:250px;
+  color:#ffc400;
+  font-size:50px;
 }
 #main h2 {
     color:#ffc400;
@@ -164,3 +172,49 @@ margin:0 auto;
 }
 
 /* END main */
+/*START admin-login */
+#admin-login {
+  position:fixed;
+     top: 50%;
+     left: 50%;
+     height:250px;
+     width:250px;
+    margin-top:-125px;
+    margin-left:-125px;
+
+}
+#admin-login h2 {
+  margin-bottom:15px;
+  margin-left:5px;
+  text-align:center;
+}
+#admin-login h3 {
+  text-align:center;
+}
+#admin-login input[type=text],input[type=password] {
+margin-left:37px;
+margin-bottom:10px;
+padding:5px;
+}
+#admin-login button
+{
+ margin-left:87px;
+ padding:5px;
+margin-bottom:15px;
+ background:#ffc400;
+ border:none;
+}
+#admin-login button:hover {
+  box-shadow:2px 2px #000;;
+
+}
+#admin-login a {
+
+  text-decoration:none;
+  margin-left:67px;
+  color:#000;
+}
+#admin-login a:hover {
+  color:#ffc400;
+}
+/* END admin-login*/

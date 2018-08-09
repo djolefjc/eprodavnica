@@ -1,3 +1,19 @@
+
+
+
+
+<?php
+session_start();
+/* GET varijabla koja se pojavljuje ako nema autorizaciju */
+if(!isset($_SESSION['admin_username'])) {
+
+  echo "<script>window.open('login.php?not_admin=You are not an admin!','_self')</script>";
+
+} else {
+
+ ?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +28,16 @@
 <div id="container">
   <div id="head">
   <h1>Admin Panel</h1>
-  <a href="index.php"><i class="fas fa-long-arrow-alt-left"><span>Back</span></i></a>
+
+  <a href="index.php"><span>Home</span></i></a>
   </div> <!-- END head -->
+
     <div id="main">
 
       <?php
+
+       echo"<span id='logged-in'>". @$_GET['logged'] . "</span>";
+
       if(isset($_GET['insert_product'])) {
         include("insert_product.php");
       }
@@ -72,3 +93,4 @@
 </div><!-- End container -->
     </body>
 </html>
+<?php }?>
