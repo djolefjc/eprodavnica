@@ -60,8 +60,8 @@ include("includes/database.php");
   <input type="hidden" name="currency_code" value="USD">
 
 
-  <input type="hidden" name="return" value="https://eprodavnica1.000webhostapp.com/payment_success.php" />
-  <input type="hidden" name="cancel_return" value="http://eprodavnica1.000webhostapp.com/payment_cancel.php" />
+  <input type="hidden" name="return" value="https://eprodavnica1.000webhostapp.com/index.php?pay_s" />
+  <input type="hidden" name="cancel_return" value="http://eprodavnica1.000webhostapp.com/index.php?pay_c" />
 
   <!-- Display the payment button. -->
 

@@ -101,6 +101,12 @@ include("functions/functions.php");
                     else {
                         getPro();
                     }
+                    if(isset($_GET["pay_s"])) {
+                      include("payment_success.php");
+                    }
+                    if(isset($_GET["pay_c"])) {
+                      include("payment_success.php");
+                    }
                     ?>
                 </div> <!-- END product box -->
 
